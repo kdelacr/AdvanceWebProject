@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+<script src="index.js"></script>
+
+    <!-- This is a wide open CSP declaration. To lock this down for production, see below. -->
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
+    <!-- Good default declaration:
+    * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+    * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+    * Disables use of eval() and inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+        * Enable inline JS: add 'unsafe-inline' to default-src
+        * Enable eval(): add 'unsafe-eval' to default-src
+    * Create your own at http://cspisawesome.com
+    -->
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
+
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <title>Explore</title>
+</head>
+<script>
+ function login() {
+   window.open("\explore.html");
+ }
+</script>
+
+<body>
+
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+  <div class="w3-bar w3-white w3-wide w3-padding w3-card">
+    <a href="#home" class="w3-bar-item w3-button">Explore</a>
+    <!-- Float links to the right. Hide them on small screens -->
+    <div class="w3-right w3-hide-small">
+      <form action="" target="_blank">
+        <input class="w3-input" type="text" placeholder="Username" required name="Username">
+        <input class="w3-input " type="text" placeholder="Password" required name="Password">
+          <button class="w3-button w3-black w3-section" type="submit" onclick = "login()">
+        <i class="fa fa-paper-plane"></i> LOG IN
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="w3-display-container w3-content w3-wide" style="max-width:1500px;" id="home">
+  <img class="w3-image" src="img/home.jpg" alt="Architecture" width="1500" height="800">
+  <div class="w3-display-middle w3-margin-top w3-center">
+
+  </div>
+</header>
+
+
+    <center><h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Sign Up</h3></center>
+    <center><p>Explore new places around your area</p><center>
+    <form action="/action_page.php" target="_blank">
+      <input class="w3-input" type="text" placeholder="First name" required name="First Name">
+      <input class="w3-input" type="text" placeholder="Last name" required name="Last Name">
+      <input class="w3-input" type="text" placeholder="Username" required name="Username">
+      <input class="w3-input" type="text" placeholder="Email" required name="Email">
+      <input class="w3-input" type="text" placeholder="Password" required name="Password">
+      <input class="w3-input" type="text" placeholder="Confirm Password" required name="Confirm Password">
+
+        <center><button class="w3-button w3-black w3-section" type="submit">
+      <i class="fa fa-paper-plane"></i> SIGN UP
+      </button></center>
+    </form>
+  </div>
+
+<!-- End page content -->
+</div>
+
+
+
+
+<!-- Footer -->
+<footer class="w3-center w3-black w3-padding-16">
+  <p>Krishel Dela Cruz || Hannah Nannet</p>
+</footer>
+
+
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript">
+        app.initialize();
+    </script>
+
+
+</html>
