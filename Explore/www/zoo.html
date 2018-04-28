@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 <html>
-<title>Coffee Shops</title>
+<title>Zoos</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -56,7 +56,7 @@ input[type=text]:focus {
             <a href="destination.html"  class="w3-button w3-block w3-black">FIND YOUR DESTINATION</a>
     </div>
     <div class="w3-col s3">
-            <a href="placestogo.html"  class="w3-button w3-block w3-black">PLACES TO GO</a>
+            <a href="activities.html"  class="w3-button w3-block w3-black">ACTIVITIES</a>
     </div>
     <div class="w3-col s3">
       <a href="contact.html" class="w3-button w3-block w3-black">CONTACT US</a>
@@ -71,7 +71,7 @@ input[type=text]:focus {
 <!-- Add a background color and large text to the whole page -->
 <div class="w3-container" id="about">
   <div class="w3-content" style="max-width:700px">
-    <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">COFFEE SHOPS NEAR YOU</span></h5>
+    <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">ZOOS NEAR YOU</span></h5>
 
 
 
@@ -108,7 +108,7 @@ input[type=text]:focus {
 
        map = new google.maps.Map(document.getElementById('map'), {
          center: normal,
-         zoom: 13
+         zoom: 12
        });
 
        infowindow = new google.maps.InfoWindow();
@@ -116,7 +116,7 @@ input[type=text]:focus {
        service.nearbySearch({
          location: normal,
          radius: 5000,
-         type: ['cafe']
+         type: ['zoo']
        }, callback);
        // // GEOLOCATION
        if (navigator.geolocation) {
@@ -137,14 +137,14 @@ input[type=text]:focus {
                 // Browser doesn't support Geolocation
                 handleLocationError(false, infoWindow, map.getCenter());
               }
-     }
-     function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-        infoWindow.setPosition(pos);
-        infoWindow.setContent(browserHasGeolocation ?
-                              'Error: The Geolocation service failed.' :
-                              'Error: Your browser doesn\'t support geolocation.');
-        infoWindow.open(map);
-      }
+            }
+            function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+               infoWindow.setPosition(pos);
+               infoWindow.setContent(browserHasGeolocation ?
+                                     'Error: The Geolocation service failed.' :
+                                     'Error: Your browser doesn\'t support geolocation.');
+               infoWindow.open(map);
+             }
 
 
      function callback(results, status) {
