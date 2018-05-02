@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 <html>
-<title>Places to go</title>
+<title>Movie Theatres</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -20,26 +20,6 @@ body, html {
 .menu {
     display: none;
 }
-
-.row {
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-    padding: 0 20px;
-}
-
-.column {
-    -ms-flex: 50%;
-    flex: 50%;
-    padding: 0 40px;
-}
-
-/* .column img {
-    margin-top: 8px;
-    vertical-align: middle;
-} */
-
 
 input[type=text] {
     width: 130px;
@@ -75,75 +55,40 @@ input[type=text]:focus {
 <div class="w3-top">
   <div class="w3-row w3-padding w3-black">
     <div class="w3-col s3">
-      <a href="explore.html" class="w3-button w3-block w3-black">HOME</a>
+      <a href="/FinalProject/Explore/www/explore.html" class="w3-button w3-block w3-black">HOME</a>
     </div>
     <div class="w3-col s3">
-            <a href="destination.html"  class="w3-button w3-block w3-black">FIND YOUR DESTINATION</a>
+            <a href="/FinalProject/Explore/www/destination.html"  class="w3-button w3-block w3-black">FIND YOUR DESTINATION</a>
     </div>
     <div class="w3-col s3">
-      <a href="contact.html" class="w3-button w3-block w3-black">CONTACT US</a>
-    </div>
-    <div class="w3-col s3">
-      <a href="index.html" class="w3-button w3-block w3-black">LOG OUT</a>
+      <a href="/FinalProject/Explore/www/contact.html" class="w3-button w3-block w3-black">CONTACT US</a>
     </div>
 
   </div>
 </div>
 
 
-    <span class="w3-tag">Search</span>
 
-    <div class="w3-container" id="about">
-      <div class="w3-content" style="max-width:700px">
-        <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">THINGS TO DO</span></h5>
-        <div class="row">
-          <div class="column">
-        <p>
-          <a href="activities.html">
-            <img border="0" alt="activities" src="img/activities.png" width="200" height="200"></a>
-<p>Activities</p>
-  <a href="bars.html">
-    <img border="0" alt="bar" src="img/bar.jpg" width="200" height="200">
-    </a>
-    <p>Bars</p>
-      <a href="hotels.html">
-        <img border="0" alt="hotels" src="img/hotels.jpg.png" width="200" height="200">
-        </a>
-        <p>Hotels</p>
-        <a href="food.html">
-          <img border="0" alt="food" src="img/food.jpg" width="200" height="200">
-                </a>
-                <p>Food places</p>
-        </div>
-        <div class="column">
-          <a href="movies.html">
-            <img border="0" alt="movies" src="img/movies.jpg" width="200" height="200">
-          </a>
-          <p>Movie places</p>
-          <a href="coffee.html">
-            <img border="0" alt="coffee" src="img/coffee.jpg" width="200" height="200">
-            </a>
-            <p>Coffee Shops</p>
-        <a href="shopping.html">
-        <img border="0" alt="shopping" src="img/shopping.png" width="250" height="200">
-        </a>
-        <p>Shopping</p>
-      <a href="gym.html">
-      <img border="0" alt="workout" src="img/workout.jpg" width="250" height="200">
-      </a>
-      <p>Gyms</p>
-    </p>
-  </div>
-  </div>
-        <div class="w3-panel w3-leftbar w3-light-grey">
-        </div>
-    </div>
+<!-- Add a background color and large text to the whole page -->
+<div class="w3-container" id="about">
+  <div class="w3-content" style="max-width:700px">
+      <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">THEATRES NEAR YOU</span></h5>
+<div id="map"></div>
+
+
+
+
+
+
+
+    <div class="w3-panel w3-leftbar w3-light-grey">
 
     </div>
-
+</div>
 
 
 <!-- End page content -->
+</div>
 </body>
 <!-- Footer -->
 <!-- Footer -->
@@ -190,7 +135,9 @@ input[type=text]:focus {
         infoWindow.open(map);
       }
     </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDj5HqS9WPd5kfdjTCXWUje3G4iyO9iJgw&libraries=places&callback=initMap" async defer></script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCBcLkOykMCoiHGF0sV0CLXxfHTH2RlmTs&callback=initMap">
+    </script>
 
-
+</body>
 </html>

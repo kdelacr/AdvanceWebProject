@@ -1,92 +1,123 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="css/index.css">
     <meta charset="utf-8" />
     <meta name="robots" content="noindex, nofollow">
     <meta name="format-detection" content="telephone=no" />
     <meta name="msapplication-tap-highlight" content="no" />
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
-
-
-
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script type="text/javascript" src="js/registration.js"></script>
-    </head>
-
+</head>
 <style>
-h2{
-text-align: center;
-font-size: 24px;
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box}
+/* Full-width input fields */
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 15px;
+    margin: 3px 0 10px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
 }
-hr{
-margin-bottom: 30px;
+
+/* Add a background color when the inputs get focus */
+input[type=text]:focus, input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
 }
-div.container{
-width: 960px;
-height: 610px;
-margin:50px auto;
-font-family: 'Droid Serif', serif;
-position:relative;
+
+/* Set a style for all buttons */
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
 }
-div.main{
-width: 320px;
-float:left;
-padding: 10px 55px 40px;
-background-color: rgba(187, 255, 184, 0.65);
-border: 15px solid white;
-box-shadow: 0 0 10px;
-border-radius: 2px;
-font-size: 13px;
+
+button:hover {
+    opacity:1;
 }
-input[type=text],[type=password] {
-width: 97.7%;
-height: 34px;
-padding-left: 5px;
-margin-bottom: 20px;
-margin-top: 8px;
-box-shadow: 0 0 5px #00F5FF;
-border: 2px solid #00F5FF;
-color: #4f4f4f;
-font-size: 16px;
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+    padding: 14px 20px;
+    background-color: #f44336;
 }
-label{
-color: #464646;
-text-shadow: 0 1px 0 #fff;
-font-size: 14px;
-font-weight: bold;
+
+/* Float cancel and signup buttons and add an equal width */
+.cancelbtn, .signupbtn {
+  float: left;
+  width: 50%;
 }
-#register {
-font-size: 20px;
-margin-top: 15px;
-background: linear-gradient(#22abe9 5%, #36caf0 100%);
-border: 1px solid #0F799E;
-padding: 7px 35px;
-color: white;
-text-shadow: 0px 1px 0px #13506D;
-font-weight: bold;
-border-radius: 2px;
-cursor: pointer;
-width: 100%;
+
+/* Add padding to container elements */
+.container {
+    padding: 16px;
 }
-#register:hover{
-background: linear-gradient(#36caf0 5%, #22abe9 100%);
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: #474e5d;
+    padding-top: 50px;
 }
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* Style the horizontal ruler */
+hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+}
+
+/* The Close Button (x) */
+.close {
+    position: absolute;
+    right: 35px;
+    top: 15px;
+    font-size: 40px;
+    font-weight: bold;
+    color: #f1f1f1;
+}
+
+.close:hover,
+.close:focus {
+    color: #f44336;
+    cursor: pointer;
+}
+
+/* Clear floats */
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
 </style>
     <!-- This is a wide open CSP declaration. To lock this down for production, see below. -->
     <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
-    <!-- Good default declaration:
-    * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
-    * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
-    * Disables use of eval() and inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
-        * Enable inline JS: add 'unsafe-inline' to default-src
-        * Enable eval(): add 'unsafe-eval' to default-src
-    * Create your own at http://cspisawesome.com
-    -->
-    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
 
-    <link rel="stylesheet" type="text/css" href="css/index.css" />
     <title>Explore Home</title>
 </head>
 <script>
@@ -95,17 +126,16 @@ background: linear-gradient(#36caf0 5%, #22abe9 100%);
  }
 </script>
 
-<body>
+<header>
 
-<!-- Navbar (sit on top) -->
 <div class="w3-top">
   <div class="w3-bar w3-white w3-wide w3-padding w3-card">
     <a href="#home" class="w3-bar-item w3-button">Explore</a>
     <!-- Float links to the right. Hide them on small screens -->
     <div class="w3-right w3-hide-small">
       <form action="" target="_blank">
-        <input class="w3-input" type="text" placeholder="Username" required name="Username">
-        <input class="w3-input " type="text" placeholder="Password" required name="Password">
+        <input class="w3-input" type="email" placeholder="Username" required name="Username">
+        <input class="w3-input " type="password" placeholder="Password" required name="Password">
           <button class="w3-button w3-black w3-section" type="submit" onclick = "login()">
         <i class="fa fa-paper-plane"></i> LOG IN
         </button>
@@ -114,45 +144,65 @@ background: linear-gradient(#36caf0 5%, #22abe9 100%);
   </div>
 </div>
 
-<!-- Header -->
-<header class="w3-display-container w3-content w3-wide" style="max-width:1500px;" id="home">
-  <img class="w3-image" src="img/home.jpg" alt="Architecture" width="1500" height="800">
-  <div class="w3-display-middle w3-margin-top w3-center">
-
-  </div>
 </header>
 
-
-    <center><h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Sign Up</h3></center>
+ <img class="w3-image" src="img/home.jpg" alt="Architecture" width="1500" height="800">
+<body>
     <center><p>Explore new places around your area</p><center>
 
-      <div class="container">
-<div class="main">
-<form class="form" method="post" action="#">
-<h2>Create Registration Form Using jQuery</h2>
-<label>Name :</label>
-<input type="text" name="dname" id="name">
-<label>Email :</label>
-<input type="text" name="demail" id="email">
-<label>Password :</label>
-<input type="password" name="password" id="password">
-<label>Confirm Password :</label>
-<input type="password" name="cpassword" id="cpassword">
-<input type="button" name="register" id="register" value="Register">
-</form>
-</div>
+      <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Sign Up</button>
+
+      <div id="id01" class="modal">
+  <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+        <form class="modal-content" action="register.php">
+          <div class="container">
+            <p>Please fill in this form to create an account.</p>
+            <hr>
+            <label for="email"><b>Email</b></label>
+            <input type="text" placeholder="Enter Email" name="email" required>
+
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="psw" required>
+
+            <label for="psw-repeat"><b>Repeat Password</b></label>
+            <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+
+            <label>
+              <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+            </label>
+
+
+            <div class="clearfix">
+              <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+              <button type="submit" class="signupbtn" id="register" value="Register" >Sign Up</button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <script>
+      // Get the modal
+      var modal = document.getElementById('id01');
+
+      // When the user clicks anywhere outside of the modal, close it
+      window.onclick = function(event) {
+          if (event.target == modal) {
+              modal.style.display = "none";
+          }
+      }
+      </script>
+  </div>
 
 <!-- End page content -->
 </div>
 
-
+</body>
 
 
 <!-- Footer -->
 <footer class="w3-center w3-black w3-padding-16">
   <p>Krishel Dela Cruz || Hannah Nannet</p>
 </footer>
-
 
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/index.js"></script>

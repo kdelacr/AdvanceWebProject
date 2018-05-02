@@ -1,0 +1,134 @@
+
+<!DOCTYPE html>
+<html>
+<title>Activities</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
+<style>
+body, html {
+    height: 100%;
+    font-family: "Inconsolata", sans-serif;
+}
+.bgimg {
+    background-position: center;
+    background-size: cover;
+    background-image: url("/w3images/coffeehouse.jpg");
+    min-height: 75%;
+}
+.menu {
+    display: none;
+}
+.row {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    padding: 0 4px;
+}
+.column {
+    -ms-flex: 50%; /* IE 10 */
+    flex: 50%;
+    padding: 0 4px;
+}
+
+
+input[type=text] {
+    width: 130px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-image: url('searchicon.png');
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+input[type=text]:focus {
+    width: 100%;
+}
+#map {
+       height: 500px;
+     }
+     /* Optional: Makes the sample page fill the window. */
+     html, body {
+       height: 500px;
+       margin: 0;
+       padding: 0;
+     }
+</style>
+<body>
+
+<!-- Links (sit on top) -->
+<div class="w3-top">
+  <div class="w3-row w3-padding w3-black">
+    <div class="w3-col s3">
+      <a href="explore.html" class="w3-button w3-block w3-black">HOME</a>
+    </div>
+    <div class="w3-col s3">
+            <a href="destination.html"  class="w3-button w3-block w3-black">FIND YOUR DESTINATION</a>
+    </div>
+    <div class="w3-col s3">
+            <a href="placestogo.html"  class="w3-button w3-block w3-black">PLACES TO GO</a>
+    </div>
+    <div class="w3-col s3">
+      <a href="contact.html" class="w3-button w3-block w3-black">CONTACT US</a>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+<!-- Add a background color and large text to the whole page -->
+<div class="w3-container" id="about">
+  <div class="w3-content" style="max-width:700px">
+    <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">ACTIVITIES TO DO</span></h5>
+    <div class ="row">
+    <div class ="column">
+    <p>
+      <a href="museums.html">
+        <img border="0" alt="museum" src="img/museum.jpg" width="250" height="200"></a>
+  <p>Museums</p>
+  <p>
+    <a href="zoo.html">
+      <img border="0" alt="zoo" src="img/zoo.jpg" width="250" height="200"></a>
+<p>Zoos</p>
+</div>
+<div class="column">
+<p>
+  <a href="bowling.html">
+    <img border="0" alt="bowling" src="img/bowling.jpg" width="250" height="200"></a>
+<p>Bowling Alleys</p>
+<p>
+  <a href="parks.html">
+    <img border="0" alt="parks" src="img/AmusementPark.jpg" width="250" height="200"></a>
+<p>Parks</p>
+</div>
+</div>
+<p>
+  <a href="sports.html">
+    <img border="0" alt="sports" src="img/sports.png" width="200" height="200"></a>
+<p>Sports</p>
+
+
+<!-- End page content -->
+</div>
+</body>
+<!-- Footer -->
+<!-- Footer -->
+<footer class="w3-center w3-black w3-padding-16">
+  <p>Krishel Dela Cruz || Hannah Nannet</p>
+</footer>
+
+
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDj5HqS9WPd5kfdjTCXWUje3G4iyO9iJgw&libraries=places&callback=initMap" async defer></script>
+
+</html>

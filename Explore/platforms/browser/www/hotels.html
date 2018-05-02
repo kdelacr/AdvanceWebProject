@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 <html>
-<title>Explore</title>
+<title>Movie Theatres</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -22,7 +22,7 @@ body, html {
 }
 
 input[type=text] {
-    width: 100px;
+    width: 130px;
     box-sizing: border-box;
     border: 2px solid #ccc;
     border-radius: 4px;
@@ -37,7 +37,7 @@ input[type=text] {
 }
 
 input[type=text]:focus {
-    width: 70%;
+    width: 100%;
 }
 #map {
        height: 500px;
@@ -61,32 +61,23 @@ input[type=text]:focus {
             <a href="destination.html"  class="w3-button w3-block w3-black">FIND YOUR DESTINATION</a>
     </div>
     <div class="w3-col s3">
-      <a href="placestogo.html" class="w3-button w3-block w3-black">PLACES TO GO</a>
+            <a href="placestogo.html"  class="w3-button w3-block w3-black">PLACES TO GO</a>
     </div>
     <div class="w3-col s3">
       <a href="contact.html" class="w3-button w3-block w3-black">CONTACT US</a>
-    </div>
-    <div class="w3-col s3">
-      <a href="index.html" class="w3-button w3-block w3-black">LOG OUT</a>
     </div>
 
   </div>
 </div>
 
-<input id="pac-input" class="controls" type="text" placeholder="Enter a location">
+
 
 <!-- Add a background color and large text to the whole page -->
 <div class="w3-container" id="about">
   <div class="w3-content" style="max-width:700px">
-    <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">WHERE YOU ARE</span></h5>
+      <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">HOTELS NEAR YOU</span></h5>
+<div id="map"></div>
 
-
-    <div id="map"></div>
-    <div id="infowindow-content">
-      <span id="place-name"  class="title"></span><br>
-     <span id="place-id"></span><br>
-      <span id="place-address"></span>
-    </div>
 
 
 
@@ -109,20 +100,24 @@ input[type=text]:focus {
 </footer>
 
 <script>
-      // This sample uses the Place Autocomplete widget to allow the user to search
-      // for and select a place. The sample then displays an info window containing
-      // the place ID and other information about the place that the user has
-      // selected.
 
-      // This example requires the Places library. Include the libraries=places
-      // parameter when you first load the API. For example:
-      // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
-
+      var map, infoWindow;
       function initMap() {
-        var map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: 40.5142, lng: -88.9906},
+        var normal = {lat: 40.5142, lng: -88.9906};
+
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: normal,
           zoom: 13
         });
+
+        infowindow = new google.maps.InfoWindow();
+        var service = new google.maps.places.PlacesService(map);
+        service.nearbySearch({
+          location: normal,
+          radius: 5000,
+          type: ['lodging']
+        }, callback);
+        // // GEOLOCATION
         if (navigator.geolocation) {
                  navigator.geolocation.getCurrentPosition(function(position) {
                    var pos = {
@@ -141,51 +136,6 @@ input[type=text]:focus {
                  // Browser doesn't support Geolocation
                  handleLocationError(false, infoWindow, map.getCenter());
                }
-
-        var input = document.getElementById('pac-input');
-
-        var autocomplete = new google.maps.places.Autocomplete(input);
-        autocomplete.bindTo('bounds', map);
-
-        map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
-
-        var infowindow = new google.maps.InfoWindow();
-        var infowindowContent = document.getElementById('infowindow-content');
-        infowindow.setContent(infowindowContent);
-        var marker = new google.maps.Marker({
-          map: map
-        });
-        marker.addListener('click', function() {
-          infowindow.open(map, marker);
-        });
-
-        autocomplete.addListener('place_changed', function() {
-          infowindow.close();
-          var place = autocomplete.getPlace();
-          if (!place.geometry) {
-            return;
-          }
-
-          if (place.geometry.viewport) {
-            map.fitBounds(place.geometry.viewport);
-          } else {
-            map.setCenter(place.geometry.location);
-            map.setZoom(17);
-          }
-
-          // Set the position of the marker using the place ID and location.
-          marker.setPlace({
-            placeId: place.place_id,
-            location: place.geometry.location
-          });
-          marker.setVisible(true);
-
-          infowindowContent.children['place-name'].textContent = place.name;
-          infowindowContent.children['place-id'].textContent = place.place_id;
-          infowindowContent.children['place-address'].textContent =
-              place.formatted_address;
-          infowindow.open(map, marker);
-        });
       }
       function handleLocationError(browserHasGeolocation, infoWindow, pos) {
          infoWindow.setPosition(pos);
@@ -194,8 +144,29 @@ input[type=text]:focus {
                                'Error: Your browser doesn\'t support geolocation.');
          infoWindow.open(map);
        }
+
+
+      function callback(results, status) {
+        if (status === google.maps.places.PlacesServiceStatus.OK) {
+          for (var i = 0; i < results.length; i++) {
+            createMarker(results[i]);
+          }
+        }
+      }
+
+      function createMarker(place) {
+        var placeLoc = place.geometry.location;
+        var marker = new google.maps.Marker({
+          map: map,
+          position: place.geometry.location
+        });
+
+        google.maps.event.addListener(marker, 'click', function() {
+          infowindow.setContent(place.name);
+          infowindow.open(map, this);
+        });
+      }
     </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDAYb2BNpiDzuDOWOv9MQjOdZS9_hc2wLs&libraries=places&callback=initMap"
-        async defer></script>
-  </body>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDj5HqS9WPd5kfdjTCXWUje3G4iyO9iJgw&libraries=places&callback=initMap" async defer></script>
+
 </html>
